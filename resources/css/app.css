@@ -1,0 +1,237 @@
+/* ── Google Fonts — LAD-Display ≈ Cormorant Garamond, LAD-Regular ≈ EB Garamond ─── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Resets — Louvre Abu Dhabi Precision ────────────────────────────── */
+@layer base {
+    *,
+    *::before,
+    *::after {
+        border-radius: 0 !important; /* LAD: zero radius everywhere */
+        box-sizing: border-box;
+    }
+
+    /* Re-allow full radius only for circular indicators */
+    .rounded-full { border-radius: 9999px !important; }
+
+    html {
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        font-family: 'EB Garamond', Georgia, serif;
+        font-weight: 300;
+        color: #000000;
+        background-color: #FFFFFF;
+        line-height: 1.4;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 1.3;
+        color: #000000;
+    }
+
+    a {
+        color: #000000;
+        text-decoration: none;
+        transition: opacity 200ms ease, text-decoration 200ms ease;
+    }
+
+    a:hover {
+        opacity: 0.7;
+    }
+
+    p {
+        font-family: 'EB Garamond', Georgia, serif;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 22.4px;
+    }
+
+    button, input, textarea, select {
+        font-family: 'EB Garamond', Georgia, serif;
+    }
+}
+
+/* ── LAD Component Layer ─────────────────────────────────────────────────── */
+@layer components {
+
+    /* ── Buttons ─────────────────────────────────────────────────────────── */
+    .btn-lad-primary {
+        @apply inline-flex items-center justify-center gap-2;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        padding: 11.2px 24px;
+        background-color: #000000;
+        color: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 0;
+        cursor: pointer;
+        transition: background-color 200ms ease, border-color 200ms ease, transform 100ms ease;
+        letter-spacing: 0;
+        text-decoration: none;
+    }
+    .btn-lad-primary:hover {
+        background-color: #212529;
+        border-color: #212529;
+        opacity: 1;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    .btn-lad-primary:active {
+        transform: scale(0.98);
+    }
+
+    .btn-lad-secondary {
+        @apply inline-flex items-center justify-center gap-2;
+        font-family: 'EB Garamond', Georgia, serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+        padding: 4px 12px;
+        background-color: transparent;
+        color: #000000;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 0;
+        cursor: pointer;
+        transition: border-color 200ms ease, background-color 200ms ease;
+    }
+    .btn-lad-secondary:hover {
+        border-color: #000000;
+        background-color: rgba(0, 0, 0, 0.05);
+        opacity: 1;
+    }
+
+    .btn-lad-cta {
+        @apply inline-flex items-center justify-center gap-2;
+        font-family: 'EB Garamond', Georgia, serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 12px 24px;
+        background-color: #0DCAF0;
+        color: #000000;
+        border: 1px solid #0DCAF0;
+        border-radius: 0;
+        cursor: pointer;
+        transition: background-color 200ms ease, border-color 200ms ease;
+    }
+    .btn-lad-cta:hover {
+        background-color: #97D2D4;
+        border-color: #97D2D4;
+        opacity: 1;
+    }
+    .btn-lad-cta:active {
+        background-color: #AACCCC;
+    }
+
+    /* ── Inputs ──────────────────────────────────────────────────────────── */
+    .input-lad {
+        width: 100%;
+        background-color: transparent;
+        color: #000000;
+        font-family: 'EB Garamond', Georgia, serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 6px 12px;
+        border: 1px solid #EDEDED;
+        border-radius: 0;
+        outline: none;
+        transition: border-color 200ms ease;
+    }
+    .input-lad::placeholder { color: #9D9D9D; }
+    .input-lad:focus { border-color: #000000; }
+    .input-lad.error { border-color: #DC3545; background-color: rgba(220, 53, 69, 0.05); }
+
+    /* ── Badges ──────────────────────────────────────────────────────────── */
+    .badge-lad {
+        display: inline-block;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        padding: 4px 8px;
+        border-radius: 0;
+    }
+    .badge-lad-dark    { background: #000000; color: #FFFFFF; }
+    .badge-lad-success { background: rgba(25, 135, 84, 0.15); color: #198754; }
+    .badge-lad-error   { background: rgba(220, 53, 69, 0.15); color: #DC3545; }
+    .badge-lad-warning { background: rgba(255, 193, 7, 0.15); color: #856404; }
+    .badge-lad-teal    { background: rgba(13, 202, 240, 0.15); color: #0a9cbf; }
+
+    /* ── Sections ────────────────────────────────────────────────────────── */
+    .section-lad {
+        padding: 60px 40px;
+    }
+    @media (max-width: 1023px) { .section-lad { padding: 48px 24px; } }
+    @media (max-width: 767px)  { .section-lad { padding: 40px 16px; } }
+
+    .container-lad {
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    @media (max-width: 1023px) { .container-lad { padding-left: 24px; padding-right: 24px; } }
+    @media (max-width: 767px)  { .container-lad { padding-left: 16px; padding-right: 16px; } }
+}
+
+/* ── Utilities ───────────────────────────────────────────────────────────── */
+@layer utilities {
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .font-body    { font-family: 'EB Garamond', Georgia, serif; }
+
+    /* Touch targets */
+    .touch-target {
+        min-width: 48px;
+        min-height: 48px;
+    }
+}
+
+/* ── Force Flatpickr Latin Digits (0-9) & LTR ────────────────────────────── */
+.flatpickr-calendar, 
+.flatpickr-time, 
+.flatpickr-hour, 
+.flatpickr-minute,
+.flatpickr-current-month,
+.flatpickr-monthDropdown-months,
+.flatpickr-input {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+    font-variant-numeric: lining-nums tabular-nums !important;
+    direction: ltr !important;
+}
+
+.flatpickr-time input {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+    font-variant-numeric: lining-nums tabular-nums !important;
+    direction: ltr !important;
+}
+
+/* ── Custom Calendar Scrollbar ───────────────────────────────────────────── */
+.custom-calendar-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-calendar-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+}
+.custom-calendar-scroll::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+.custom-calendar-scroll::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
